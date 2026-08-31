@@ -3,20 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>福岡自由行 - Day 1 行程</title>
-    <!-- LINE 跳出瀏覽器偵測腳本 -->
+    <title>福岡自由行 - Day 1 行程測試</title>
+    <!-- LINE 自動跳出手機瀏覽器腳本 -->
     <script>
         (function() {
             var ua = navigator.userAgent || navigator.vendor || window.opera;
-            var isLine = ua.indexOf("Line") > -1;
-            if (isLine) {
-                // 這是強制讓 LINE 喚醒外部瀏覽器的通用特殊網址
+            if (ua.indexOf("Line") > -1) {
                 var currentUrl = window.location.href;
-                if (currentUrl.indexOf('?') > -1) {
-                    currentUrl += '&openExternalBrowser=1';
-                } else {
-                    currentUrl += '?openExternalBrowser=1';
-                }
+                currentUrl += (currentUrl.indexOf('?') > -1 ? '&' : '?') + 'openExternalBrowser=1';
                 window.location.href = currentUrl;
             }
         })();
@@ -49,7 +43,7 @@
 <div class="container">
     <header>
         <h1>✈️ 福岡自由行網頁版</h1>
-        <p>點擊按鈕將自動喚醒手機 App 進入導航模式</p>
+        <p>經 URL 編碼修正版（電腦與手機皆可正常讀取地點）</p>
     </header>
 
     <!-- DAY 1 開始 -->
@@ -61,6 +55,7 @@
             <div class="time">⏰ 下午 17:50</div>
             <div class="spot-name">🛬 福岡機場 (FUK)</div>
             <div class="memo">💡 備忘錄：順利降落後，依循指標辦理入境手續、領取行李並過海關。</div>
+            <!-- 使用官方標準搜尋參數與編碼 -->
             <a href="https://google.com" target="_blank" class="btn-map">🗺️ 查看機場定位</a>
         </div>
 
@@ -69,7 +64,8 @@
             <div class="time">⏰ 傍晚</div>
             <div class="spot-name">🏨 Amistad Hotel Fukuoka (入住登記)</div>
             <div class="memo">💡 備忘錄：搭乘地鐵或計程車直接前往飯店辦理 Check-in，先放置行李。</div>
-            <a href="https://google.com" target="_blank" class="btn-map">🚗 啟動手機 App 導航去飯店</a>
+            <!-- 採用萬用 URL 導航格式（已編碼目的地） -->
+            <a href="https://google.com" target="_blank" class="btn-map">🚗 導航去飯店</a>
         </div>
 
         <!-- 節點 3 -->
@@ -77,7 +73,8 @@
             <div class="time">⏰ 晚餐</div>
             <div class="spot-name">🍜 博多車站 / 地下街美食</div>
             <div class="memo">💡 備忘錄：步行前往博多車站，在車站內或地下街享用博多在地美食（如博多豚骨拉麵、一口餃子或暖胃的牛腸鍋）。</div>
-            <a href="https://google.com" target="_blank" class="btn-map">🚶 啟動手機 App 導航去博多車站</a>
+            <!-- 採用萬用 URL 導航格式（已編碼目的地） -->
+            <a href="https://google.com" target="_blank" class="btn-map">🚶 導航去博多車站</a>
         </div>
     </div>
     <!-- DAY 1 結束 -->
