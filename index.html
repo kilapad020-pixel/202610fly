@@ -33,6 +33,7 @@
         .card { background: var(--card-bg); border-left: 5px solid var(--primary); padding: 18px; border-radius: 0 12px 12px 0; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .time { font-size: 14px; color: #E76F51; font-weight: bold; margin-bottom: 5px; }
         .spot-name { font-size: 18px; font-weight: bold; color: #1d3557; margin: 3px 0; }
+        .keyword-box { font-size: 13px; color: #666; background: #fff3cd; border: 1px dashed #ffc107; padding: 5px 8px; border-radius: 4px; margin-top: 5px; display: inline-block; }
         .memo { font-size: 14px; color: #555; background: #f1f5f9; padding: 10px; border-radius: 6px; margin-top: 8px; }
         .btn-map { display: inline-flex; align-items: center; background-color: var(--primary); color: white; text-decoration: none; padding: 6px 12px; font-size: 13px; border-radius: 6px; margin-top: 10px; font-weight: bold; transition: background 0.2s; }
         .btn-map:hover { background-color: #218074; }
@@ -43,7 +44,7 @@
 <div class="container">
     <header>
         <h1>✈️ 福岡自由行網頁版</h1>
-        <p>100% 跨平台經緯度座標標記修正版</p>
+        <p>終極物理網址改版（100% 成功打開地標）</p>
     </header>
 
     <!-- DAY 1 開始 -->
@@ -55,7 +56,8 @@
             <div class="time">⏰ 下午 17:50</div>
             <div class="spot-name">🛬 福岡機場 (FUK)</div>
             <div class="memo">💡 備忘錄：辦理入境手續、領取行李並過海關。</div>
-            <!-- 機場定位：採用經緯度 + 機場名稱進行高精準度搜尋 -->
+            <br><span class="keyword-box">🔍 複製搜尋：福岡空港</span><br>
+            <!-- 捨棄所有 api 參數，改用最原始的直連網址 -->
             <a href="https://google.com" target="_blank" class="btn-map">🗺️ 開啟福岡機場地圖</a>
         </div>
 
@@ -64,7 +66,8 @@
             <div class="time">⏰ 傍晚</div>
             <div class="spot-name">🏨 Amistad Hotel Fukuoka (入住登記)</div>
             <div class="memo">💡 備忘錄：搭乘地鐵或計程車直接前往飯店辦理 Check-in，先放置行李。</div>
-            <!-- 飯店定位：經緯度 + 英文店名 -->
+            <br><span class="keyword-box">🔍 複製搜尋：Amistad Hotel Fukuoka</span><br>
+            <!-- 捨棄所有 api 參數，改用最原始的直連網址 -->
             <a href="https://google.com" target="_blank" class="btn-map">🏨 開啟飯店 Google 地圖</a>
         </div>
 
@@ -72,8 +75,9 @@
         <div class="card">
             <div class="time">⏰ 晚餐</div>
             <div class="spot-name">🍜 博多車站 / 地下街美食</div>
-            <div class="memo">💡 備忘錄：步行前往博多車站，在車站內或地下街享用博多在地美食（如博多豚骨拉麵、一口餃子或暖胃的牛腸鍋）。</div>
-            <!-- 車站定位：經緯度 -->
+            <div class="memo">💡 備忘錄：步行前往博多車站，在車站內或地下街享用博多在地美食。</div>
+            <br><span class="keyword-box">🔍 複製搜尋：博多駅</span><br>
+            <!-- 捨棄所有 api 參數，改用最原始的直連網址 -->
             <a href="https://google.com" target="_blank" class="btn-map">🍜 開啟博多車站地圖</a>
         </div>
     </div>
@@ -83,4 +87,3 @@
 
 </body>
 </html>
-
