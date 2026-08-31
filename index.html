@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福岡自由行 - Day 1 行程測試</title>
+    <!-- LINE 自動跳出手機瀏覽器腳本 -->
+    <script>
+        (function() {
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+            if (ua.indexOf("Line") > -1) {
+                var currentUrl = window.location.href;
+                currentUrl += (currentUrl.indexOf('?') > -1 ? '&' : '?') + 'openExternalBrowser=1';
+                window.location.href = currentUrl;
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --primary: #2A9D8F;
+            --secondary: #E76F51;
+            --bg: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --text: #264653;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif; }
+        body { background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; }
+        header { text-align: center; padding: 30px 0; background: linear-gradient(135deg, #2A9D8F, #264653); color: white; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        header h1 { font-size: 24px; margin-bottom: 5px; }
+        .day-section { margin-bottom: 30px; }
+        .day-title { background-color: var(--secondary); color: white; display: inline-block; padding: 6px 18px; border-radius: 20px; font-weight: bold; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 16px; }
+        .card { background: var(--card-bg); border-left: 5px solid var(--primary); padding: 18px; border-radius: 0 12px 12px 0; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .time { font-size: 14px; color: #E76F51; font-weight: bold; margin-bottom: 5px; }
+        .spot-name { font-size: 18px; font-weight: bold; color: #1d3557; margin: 3px 0; }
+        .memo { font-size: 14px; color: #555; background: #f1f5f9; padding: 10px; border-radius: 6px; margin-top: 8px; }
+        .btn-map { display: inline-flex; align-items: center; background-color: var(--primary); color: white; text-decoration: none; padding: 6px 12px; font-size: 13px; border-radius: 6px; margin-top: 10px; font-weight: bold; transition: background 0.2s; }
+        .btn-map:hover { background-color: #218074; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>✈️ 福岡自由行網頁版</h1>
+        <p>經 URL 編碼修正版（電腦與手機皆可正常讀取地點）</p>
+    </header>
+
+    <!-- DAY 1 開始 -->
+    <div class="day-section">
+        <div class="day-title">🗓️ 10/2 (五) Day 1：抵達福岡，美味博多夜</div>
+        
+        <!-- 節點 1 -->
+        <div class="card">
+            <div class="time">⏰ 下午 17:50</div>
+            <div class="spot-name">🛬 福岡機場 (FUK)</div>
+            <div class="memo">💡 備忘錄：順利降落後，依循指標辦理入境手續、領取行李並過海關。</div>
+            <!-- 使用官方標準搜尋參數與編碼 -->
+            <a href="https://google.com" target="_blank" class="btn-map">🗺️ 查看機場定位</a>
+        </div>
+
+        <!-- 節點 2 -->
+        <div class="card">
+            <div class="time">⏰ 傍晚</div>
+            <div class="spot-name">🏨 Amistad Hotel Fukuoka (入住登記)</div>
+            <div class="memo">💡 備忘錄：搭乘地鐵或計程車直接前往飯店辦理 Check-in，先放置行李。</div>
+            <!-- 採用萬用 URL 導航格式（已編碼目的地） -->
+            <a href="https://google.com" target="_blank" class="btn-map">🚗 導航去飯店</a>
+        </div>
+
+        <!-- 節點 3 -->
+        <div class="card">
+            <div class="time">⏰ 晚餐</div>
+            <div class="spot-name">🍜 博多車站 / 地下街美食</div>
+            <div class="memo">💡 備忘錄：步行前往博多車站，在車站內或地下街享用博多在地美食（如博多豚骨拉麵、一口餃子或暖胃的牛腸鍋）。</div>
+            <!-- 採用萬用 URL 導航格式（已編碼目的地） -->
+            <a href="https://google.com" target="_blank" class="btn-map">🚶 導航去博多車站</a>
+        </div>
+    </div>
+    <!-- DAY 1 結束 -->
+
+</div>
+
+</body>
+</html>
