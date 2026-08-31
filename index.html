@@ -238,30 +238,37 @@
         </div>
     </div>
     <!-- ================= DAY 4 結束 ================= -->
-    <!-- ================= DAY 5 開始 ================= -->
+
+    
+        <!-- ================= DAY 5 開始 ================= -->
     <div class="day-section" id="day5">
         <div class="day-title">🗓️ 10/6 (二) Day 5：溫泉晨湯，重返博多最後補貨</div>
 
+        <!-- 節點 1 -->
         <div class="card">
             <div class="time">⏰ 上午</div>
             <div class="spot-name">♨️ 悠閒晨湯 ➜ 11:00 搭車返回</div>
             <div class="memo">💡 備忘錄：早起在清新的山林空氣中享受晨湯，接著享用溫泉旅館的美味日式早餐。退房後前往黑川溫泉巴士站，搭乘 11:00 的高速巴士返回博多車站。</div>
-            <button onclick="smartMap('黑川溫泉巴士站', 'Kurokawa+Onsen+Bus+Stop')" class="btn-map">🚌 黑川溫泉巴士站定位</button>
+            <!-- 黑川溫泉巴士站官方直連網址 -->
+            <a href="https://google.com" target="_blank" class="btn-map">🚌 黑川溫泉巴士站定位</a>
         </div>
 
+        <!-- 節點 2 -->
         <div class="card">
             <div class="time">⏰ 14:00 之後</div>
             <div class="spot-name">🏨 東洋酒店 Check-in（博多站筑紫口）</div>
             <div class="memo">💡 備忘錄：預計於下午 14:00 前回到博多車站，領取大行李。步行前往附近的「東洋酒店」辦理 Check-in 置放行李。</div>
-            <button onclick="smartMap('東洋酒店', 'Toyo+Hotel+Fukuoka')" class="btn-map">🏨 導航去東洋酒店</button>
+            <!-- 使用您提供的東洋酒店官方實體地標短網址 -->
+            <a href="https://maps.app.goo.gl/KnSxJmVCzBjmuAMK8" target="_blank" class="btn-map">🏨 東洋酒店位置</a>
         </div>
 
+        <!-- 節點 3 -->
         <div class="card">
             <div class="time">⏰ 下午 - 晚上</div>
             <div class="spot-name">🛍️ 博多車站週邊（AMU PLAZA、阪急、Yodobashi）大補貨</div>
             <div class="memo">💡 備忘錄：在博多車站週邊的強大商圈（AMU PLAZA、博多阪急百貨、Yodobashi 多媒體電器店等）進行藥妝與伴手禮的最後大補貨！</div>
-            <button onclick="smartMap('AMU PLAZA 博多', 'AMU+PLAZA+Hakata')" class="btn-map">🛍️ AMU PLAZA</button>
-            <button onclick="smartMap('Yodobashi 博多', 'Yodobashi+Hakata')" class="btn-map btn-sub">📷 Yodobashi 電器</button>
+            <a href="https://google.com" target="_blank" class="btn-map">🛍️ AMU PLAZA</a>
+            <a href="https://google.com" target="_blank" class="btn-map btn-sub">📷 Yodobashi 電器</a>
         </div>
     </div>
     <!-- ================= DAY 5 結束 ================= -->
@@ -271,13 +278,16 @@
     <div class="day-section" id="day6">
         <div class="day-title">🗓️ 10/7 (三) Day 6：輕鬆退房，完美返台</div>
 
+        <!-- 節點 1 -->
         <div class="card">
             <div class="time">⏰ 上午 08:30</div>
             <div class="spot-name">🚕 睡飽退房 ➜ 直奔福岡機場國際航廈</div>
             <div class="memo">💡 備忘錄：在東洋酒店睡飽，悠閒辦理退房。因為最後一天行李最重，強烈建議直接搭乘計程車直達福岡機場國際航廈（車程約 12-15 分鐘，車資約 1,500 日圓，三人均攤超划算，免去拖重行李上下轉車的疲憊！）。</div>
-            <button onclick="smartMap('福岡機場國際航廈', 'Fukuoka+Airport+International+Terminal')" class="btn-map">🚖 導航至機場國際航廈</button>
+            <!-- 福岡機場國際航廈官方直連網址 -->
+            <a href="https://google.com" target="_blank" class="btn-map">🚖 福岡機場國際航廈</a>
         </div>
 
+        <!-- 節點 2 -->
         <div class="card">
             <div class="time">⏰ 上午 08:55 - 12:25</div>
             <div class="spot-name">✈️ 08:55 辦理登機 ➜ 10:55 虎航返台</div>
@@ -288,29 +298,5 @@
 
 </div> <!-- .container 的結尾 -->
 
-<!-- ================= 核心智慧轉向腳本（大腦發動機） ================= -->
-<script>
-    function smartMap(displayName, queryName) {
-        var ua = navigator.userAgent || navigator.vendor || window.opera;
-        var isiOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-        var isAndroid = /Android/.test(ua);
-
-        if (isiOS || isAndroid) {
-            // 手機版：嘗試直接叫起 Google Maps App
-            var appUrl = "comgooglemaps://?q=" + queryName;
-            window.location.href = appUrl;
-
-            // 防呆防卡死機制：如果手機沒裝 App 或被阻擋，0.5秒後自動改用網頁版開啟
-            setTimeout(function() {
-                window.open("https://google.com" + queryName, '_blank');
-            }, 500);
-        } else {
-            // 電腦版：直接在新分頁開啟最相容的 Google 地圖網頁
-            window.open("https://google.com" + queryName, '_blank');
-        }
-    }
-</script>
-
 </body>
 </html>
-
