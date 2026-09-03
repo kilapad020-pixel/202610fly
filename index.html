@@ -1,305 +1,943 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>福岡自由行 - 完整行程網頁版</title>
-    <!-- LINE 自動跳出手機瀏覽器腳本 -->
+    <title>福岡．系島．黑川溫泉 6天5夜完整行程指南</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        (function() {
-            var ua = navigator.userAgent || navigator.vendor || window.opera;
-            if (ua.indexOf("Line") > -1) {
-                var currentUrl = window.location.href;
-                currentUrl += (currentUrl.indexOf('?') > -1 ? '&' : '?') + 'openExternalBrowser=1';
-                window.location.href = currentUrl;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbe1',
+                            100: '#fef3c7',
+                            500: '#d97706',
+                            600: '#b45309',
+                            800: '#78350f',
+                            900: '#451a03',
+                        },
+                        japan: {
+                            indigo: '#1e293b',
+                            crimson: '#991b1b',
+                            matcha: '#065f46',
+                            warmBg: '#fdfbf7',
+                            cardBg: '#ffffff',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    }
+                }
             }
-        })();
-    </script>
-    <style>
-        :root {
-            --primary: #2A9D8F;
-            --secondary: #E76F51;
-            --bg: #F8F9FA;
-            --card-bg: #FFFFFF;
-            --text: #264653;
         }
-        /* 讓頁面平滑滾動 */
-        html { scroll-behavior: smooth; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif; }
-        body { background-color: var(--bg); color: var(--text); padding: 20px; padding-top: 90px; line-height: 1.6; }
-        .container { max-width: 600px; margin: 0 auto; }
-        
-        /* 頂端固定的天數分類導覽列 */
-        .nav-bar { position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(135deg, #2A9D8F, #264653); padding: 12px 10px; display: flex; justify-content: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); z-index: 999; }
-        .nav-btn { display: inline-block; color: white; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; background: rgba(255, 255, 255, 0.15); transition: background 0.2s; }
-        .nav-btn:hover { background: rgba(255, 255, 255, 0.3); }
-        
-        header { text-align: center; padding: 25px 0; background: #ffffff; color: var(--text); border-radius: 15px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; }
-        header h1 { font-size: 22px; margin-bottom: 5px; color: #1d3557; }
-        
-        .day-section { margin-bottom: 40px; padding-top: 20px; }
-        .day-title { background-color: var(--secondary); color: white; display: inline-block; padding: 6px 18px; border-radius: 20px; font-weight: bold; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-size: 16px; width: 100%; text-align: center; }
-        
-        .card { background: var(--card-bg); border-left: 5px solid var(--primary); padding: 18px; border-radius: 0 12px 12px 0; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .time { font-size: 14px; color: #E76F51; font-weight: bold; margin-bottom: 5px; }
-        .spot-name { font-size: 18px; font-weight: bold; color: #1d3557; margin: 3px 0; }
-        .memo { font-size: 14px; color: #555; background: #f1f5f9; padding: 10px; border-radius: 6px; margin-top: 8px; }
-        .btn-map { display: inline-flex; align-items: center; background-color: var(--primary); color: white; text-decoration: none; padding: 6px 12px; font-size: 13px; border-radius: 6px; margin-top: 10px; font-weight: bold; transition: background 0.2s; margin-right: 5px; }
-        .btn-map:hover { background-color: #218074; }
-        .btn-sub { background-color: #4A90E2; }
-        .btn-sub:hover { background-color: #357ABD; }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', 'Inter', sans-serif;
+            background-color: #f7f5f0;
+            color: #1e293b;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col custom-scrollbar">
 
-<!-- 頂端天數分類導覽列（未來有 Day 3, Day 4 只要複製按鈕補在後面即可） -->
-<!-- 頂端天數分類導覽列（已更新 Day 1 - Day 6 完整版） -->
-<div class="nav-bar">
-    <a href="#day1" class="nav-btn">🗓️ Day 1</a>
-    <a href="#day2" class="nav-btn">🗓️ Day 2</a>
-    <a href="#day3" class="nav-btn">🗓️ Day 3</a>
-    <a href="#day4" class="nav-btn">🗓️ Day 4</a>
-    <a href="#day5" class="nav-btn">🗓️ Day 5</a>
-    <a href="#day6" class="nav-btn">🗓️ Day 6</a>
-</div>
+    <!-- Sticky Header Navigation -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-200/80 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo & Title -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-amber-500 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-slate-800 text-base sm:text-lg leading-tight">福岡．系島．黑川溫泉</h1>
+                        <p class="text-xs text-brand-600 font-medium">2026/10/02 (五) － 10/07 (三) 6天5夜行程指南</p>
+                    </div>
+                </div>
 
+                <!-- Navigation Links (Desktop) -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-4 text-sm font-medium">
+                    <a href="#countdown" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-amber-50 transition">搶票提醒</a>
+                    <a href="#itinerary" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-amber-50 transition">每日行程</a>
+                    <a href="#transit-guide" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-amber-50 transition">交通全攻略</a>
+                    <a href="#shopping" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-amber-50 transition">鞋類/購物採買</a>
+                    <a href="#checklist" class="px-3 py-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-amber-50 transition">檢查清單</a>
+                </nav>
 
-<div class="container">
-    <header>
-        <h1>✈️ 福岡自由行智慧行程表</h1>
-        <p>📱 點擊地圖直接喚醒手機 Google Maps App</p>
+                <!-- Action Button -->
+                <div class="flex items-center space-x-2">
+                    <button onclick="window.print()" class="hidden sm:inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg border border-slate-300 text-xs text-slate-600 hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-print"></i>
+                        <span>列印/PDF</span>
+                    </button>
+                    <a href="#itinerary" class="inline-flex items-center space-x-1 px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-semibold hover:bg-slate-800 shadow-sm transition">
+                        <span>開始覽覽</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- ================= DAY 1 開始 ================= -->
-    <!-- 注意這裡加上了 id="day1" 用來與頂端按鈕連結 -->
-    <div class="day-section" id="day1">
-        <div class="day-title">🗓️ 10/2 (五) Day 1：抵達福岡，美味博多夜</div>
-        
-        <div class="card">
-            <div class="time">⏰ 下午 18:50</div>
-            <div class="spot-name">🛬 福岡機場 (FUK)</div>
-            <div class="memo">💡 備忘錄：辦理入境手續、領取行李並過海關。</div>
-            <a href="https://maps.app.goo.gl/bSTXGBAh8QHChAeh9" class="btn-map">🗺️ 福岡機場</a>
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+
+        <!-- Hero Banner & Flight Details -->
+        <section class="relative rounded-3xl overflow-hidden bg-slate-900 text-white shadow-xl">
+            <div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent"></div>
+            
+            <div class="relative z-10 p-6 sm:p-10 lg:p-12">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-medium mb-4">
+                    <i class="fa-solid fa-star text-amber-400"></i>
+                    <span>完全整合版 · 交通動線 ＆ 購物採買的最佳平衡</span>
+                </div>
+
+                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-3 leading-snug">
+                    九州秋季奢華慢遊：海景鳥居 × 秘境溫泉 × 美食採購
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base max-w-2xl mb-8 leading-relaxed">
+                    結合系島絕美二見浦夫婦岩、黑川溫泉山しのぶ無上療癒、天神平價掃貨與藥院極品和牛燒肉的完美動線。
+                </p>
+
+                <!-- Flight Details Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-slate-700/60">
+                    <!-- Outbound Flight -->
+                    <div class="flex items-center space-x-4 bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-xl font-bold">
+                            去
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-xs text-orange-400 font-semibold">台灣虎航 IT240 (已訂)</span>
+                                <span class="text-xs text-slate-400">2026/10/02 (五)</span>
+                            </div>
+                            <div class="flex items-center justify-between font-bold text-slate-100 text-sm sm:text-base">
+                                <span>TPE 14:25</span>
+                                <i class="fa-solid fa-plane text-xs text-slate-500"></i>
+                                <span>FUK 17:50</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inbound Flight -->
+                    <div class="flex items-center space-x-4 bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold">
+                            回
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-xs text-emerald-400 font-semibold">台灣虎航 IT241 (已訂)</span>
+                                <span class="text-xs text-slate-400">2026/10/07 (三)</span>
+                            </div>
+                            <div class="flex items-center justify-between font-bold text-slate-100 text-sm sm:text-base">
+                                <span>FUK 10:55</span>
+                                <i class="fa-solid fa-plane text-xs text-slate-500"></i>
+                                <span>TPE 12:25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Critical Task Banner: Highway Bus Ticket Booking Countdown -->
+        <section id="countdown" class="bg-gradient-to-r from-amber-500 via-brand-500 to-amber-600 rounded-2xl p-5 sm:p-6 text-white shadow-lg relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-15 text-white text-9xl font-black">
+                <i class="fa-solid fa-ticket"></i>
+            </div>
+            
+            <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-bell animate-bounce text-amber-200"></i>
+                        <span>最高優先級任務 / 行程成敗關鍵</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold">黑川溫泉高速巴士 開放搶票倒數</h3>
+                    <p class="text-amber-100 text-xs sm:text-sm">
+                        開放時間：<strong class="text-white underline underline-offset-4">2026/09/05 (六) 台灣時間 08:00 AM</strong>（日本時間 09:00）
+                    </p>
+                </div>
+
+                <!-- Timer Box -->
+                <div class="flex items-center space-x-3 text-center">
+                    <div class="bg-slate-900/80 backdrop-blur-md p-3 sm:p-4 rounded-xl min-w-[70px] border border-amber-300/30">
+                        <div id="count-days" class="text-xl sm:text-3xl font-extrabold text-amber-400">--</div>
+                        <div class="text-[10px] text-slate-300 uppercase mt-1">天 (Days)</div>
+                    </div>
+                    <div class="text-xl font-bold text-amber-200">:</div>
+                    <div class="bg-slate-900/80 backdrop-blur-md p-3 sm:p-4 rounded-xl min-w-[70px] border border-amber-300/30">
+                        <div id="count-hours" class="text-xl sm:text-3xl font-extrabold text-amber-400">--</div>
+                        <div class="text-[10px] text-slate-300 uppercase mt-1">時 (Hours)</div>
+                    </div>
+                    <div class="text-xl font-bold text-amber-200">:</div>
+                    <div class="bg-slate-900/80 backdrop-blur-md p-3 sm:p-4 rounded-xl min-w-[70px] border border-amber-300/30">
+                        <div id="count-mins" class="text-xl sm:text-3xl font-extrabold text-amber-400">--</div>
+                        <div class="text-[10px] text-slate-300 uppercase mt-1">分 (Mins)</div>
+                    </div>
+                    <div class="text-xl font-bold text-amber-200">:</div>
+                    <div class="bg-slate-900/80 backdrop-blur-md p-3 sm:p-4 rounded-xl min-w-[70px] border border-amber-300/30">
+                        <div id="count-secs" class="text-xl sm:text-3xl font-extrabold text-amber-400">--</div>
+                        <div class="text-[10px] text-slate-300 uppercase mt-1">秒 (Secs)</div>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="https://www.highwaybus.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-white text-slate-900 font-bold text-sm shadow-md hover:bg-amber-50 hover:scale-105 transition transform">
+                        <span>Highwaybus 搶票官網</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day Selector & Filter Navigation -->
+        <section id="itinerary" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-days text-brand-500"></i>
+                        <span>6天5夜 完整每日行程表</span>
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">點擊可切換天數，或自由點選景點查看隱藏訣竅與搭車動線</p>
+                </div>
+
+                <!-- Day Filter Buttons -->
+                <div class="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0 custom-scrollbar">
+                    <button onclick="filterDay('all')" id="tab-all" class="day-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition whitespace-nowrap bg-slate-900 text-white shadow-sm">
+                        全部天數
+                    </button>
+                    <button onclick="filterDay(1)" id="tab-1" class="day-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition whitespace-nowrap">
+                        D1 10/2(五)
+                    </button>
+                    <button onclick="filterDay(2)" id="tab-2" class="day-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition whitespace-nowrap">
+                        D2 10/3(六)
+                    </button>
+                    <button onclick="filterDay(3)" id="tab-3" class="day-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition whitespace-nowrap">
+                        D3 10/4(日)
+                    </button>
+                    <button onclick="filterDay(4)" id="tab-4" class="day-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition whitespace-nowrap">
+                        D4 10/5(一)
+                    </button>
+                    <button onclick="filterDay(5)" id="tab-5" class="day-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition whitespace-nowrap">
+                        D5 10/6(二)
+                    </button>
+                    <button onclick="filterDay(6)" id="tab-6" class="day-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-100 transition whitespace-nowrap">
+                        D6 10/7(三)
+                    </button>
+                </div>
+            </div>
+
+            <!-- DAY 1 CARD -->
+            <div class="day-card space-y-4" data-day="1">
+                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 rounded-lg bg-orange-100 text-orange-700 text-xs font-bold">DAY 1</span>
+                            <span class="font-bold text-slate-800 text-base sm:text-lg">10/02 (五) 抵達福岡 ＆ 博多美味夜體驗</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium">
+                            <i class="fa-solid fa-bed text-brand-500 mr-1"></i>住宿：Amistad Hotel Fukuoka
+                        </div>
+                    </div>
+
+                    <!-- Timeline Events -->
+                    <div class="relative border-l-2 border-slate-200 ml-3 pl-6 space-y-6">
+                        <!-- Event 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-orange-500 border-4 border-white shadow"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">17:50 班機抵達福岡機場 (FUK)</span>
+                                <span>交通：機場入境 / 計程車或地鐵</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                辦理入境與海關手續。福岡機場離市區極近，建議直接搭地鐵或搭計程車直達飯店辦理入住。
+                            </p>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">傍晚飯店 Check-in</span>
+                                <span>地點：Amistad Hotel Fukuoka</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                於渡邊通站附近的 Amistad Hotel Fukuoka 登記入住與放置行李，卸下飛行疲勞。
+                            </p>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-brand-600 text-sm">晚餐：博多車站地底美食街</span>
+                                <span class="text-emerald-600 font-semibold">推薦：豚骨拉麵 / 一口餃子 / 牛腸鍋</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                步行前往博多車站，在博多麵街道或地下街享用道地的博多豚骨拉麵、酥脆一口餃子或暖胃濃郁的牛腸鍋 (Motsunabe)。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 2 CARD -->
+            <div class="day-card space-y-4" data-day="2">
+                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 rounded-lg bg-sky-100 text-sky-700 text-xs font-bold">DAY 2</span>
+                            <span class="font-bold text-slate-800 text-base sm:text-lg">10/03 (六) 系島二見浦藍海一日遊 ＆ 天神購物 ＆ 長濱屋台美食夜</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium">
+                            <i class="fa-solid fa-bed text-brand-500 mr-1"></i>住宿：Amistad Hotel Fukuoka
+                        </div>
+                    </div>
+
+                    <!-- Timeline Events -->
+                    <div class="relative border-l-2 border-slate-200 ml-3 pl-6 space-y-6">
+                        <!-- Event 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-sky-500 border-4 border-white shadow"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">09:00 - 09:15 移動前往博多車站巴士總站</span>
+                                <span>渡邊通站 ➔ 地鐵七隈線 ➔ 博多站</span>
+                            </div>
+                            <div class="bg-amber-50 border-l-4 border-amber-500 p-2.5 rounded-r-lg text-xs text-amber-800 mb-2">
+                                <strong>★ 購票關鍵與戰略：</strong> 請預先下載「my route App」購買<strong>「糸島半島 1day 高乘車券（含高速巴士版）」(2,000日圓)</strong>。務必選擇「博多車站巴士總站 3樓 32號乘車處」作為起點上車，確保週六有舒適座位！
+                            </div>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-sky-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">09:28 - 10:30 直達高速巴士 West Coast Liner</span>
+                                <span>下車站：二見ヶ浦・PALMBEACH前</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                車程約1小時直達，欣賞沿途蔚藍海岸線。下車後步行2~4分鐘即達沙灘，拍攝絕美聖潔的<strong>白色海上鳥居與夫婦岩</strong>。
+                            </p>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-brand-600 text-sm">10:45 - 12:30 午餐：糸島海鮮堂 二見ヶ浦本店</span>
+                                <span class="text-rose-600 font-semibold">必點：特上海鮮丼 / 明太子玉子燒丼</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                現場登記時強烈建議指定<strong>「靠窗座位」</strong>，邊賞無敵海景邊享受澎湃海鮮盛宴！
+                            </p>
+                        </div>
+
+                        <!-- Event 4 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-sky-400 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">12:30 - 14:40 海景下午茶 ＆ 天使之翼拍照</span>
+                                <span>PALM BEACH 廣場區</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                打卡拍攝「天使之翼 (Angel Wings)」彩繪牆，前往<strong>「月與太陽 糸島茶房」</strong>品嚐經典鬆軟舒芙蕾鬆餅或 Beach Cafe SUNSET 喝海景咖啡。
+                            </p>
+                        </div>
+
+                        <!-- Event 5 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-indigo-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-indigo-700 text-sm">14:50 - 18:00 返抵天神北側 ＆ Mina天神與AEON大掃貨</span>
+                                <span>搭 14:50 巴士 ➔ 「天神四丁目」下車</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                下車即為 Mina 天神與 AEON！採購 LOFT 4F 日系文具雜貨、九州最大 UNIQLO & GU 旗艦店、3COINS+plus B1F，並在 AEON 超市購入 10月必吃麝香葡萄與日本零食！
+                            </p>
+                            <!-- Optional Insertion Option A Badge -->
+                            <div class="mt-2 inline-flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 text-xs">
+                                <i class="fa-solid fa-shoe-prints text-amber-600"></i>
+                                <span>採買插隊方案 A：順路步行5分鐘至【鬼塚虎 天神 PARCO 店】</span>
+                            </div>
+                        </div>
+
+                        <!-- Event 6 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-rose-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-rose-700 text-sm">18:20 - 20:30 晚餐：長濱屋台 - 屋台のたまちゃん本館</span>
+                                <span>交通：AEON門口搭計程車 (~1,000日圓, 5分鐘)</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                體驗九州特有屋台文化！享用現烤炭火雞肉串、飛魚高湯黑關東煮、香氣十足鐵板燒拉麵與道地長濱豚骨拉麵！吃完搭計程車(~1,500日圓)輕鬆回飯店。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 3 CARD -->
+            <div class="day-card space-y-4" data-day="3">
+                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 rounded-lg bg-emerald-100 text-emerald-700 text-xs font-bold">DAY 3</span>
+                            <span class="font-bold text-slate-800 text-base sm:text-lg">10/04 (日) 天神美食 ➜ Workman 服飾採買 ➜ 飯店梳洗 ➜ 藥院和牛燒肉盛宴</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium">
+                            <i class="fa-solid fa-bed text-brand-500 mr-1"></i>住宿：Amistad Hotel Fukuoka
+                        </div>
+                    </div>
+
+                    <!-- Timeline Events -->
+                    <div class="relative border-l-2 border-slate-200 ml-3 pl-6 space-y-6">
+                        <!-- Event 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-white shadow"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">上午：天神美食與散策</span>
+                                <span>極品明太子饗宴</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                前往買超人氣明太子麵包，接著至<strong>「元祖博多明太子重」</strong>品嚐極品明太子飯，於天神商圈散步逛街。
+                            </p>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">13:30 - 15:30 Workman Plus 福岡吉塚店 大掃貨</span>
+                                <span>交通：天神搭計程車 (~1,500-2,000日圓, 12-15分鐘)</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                超划算三人分攤車資！選購高 CP 值戶外防風大衣、機能服飾與防滑鞋履。
+                            </p>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">15:30 - 16:30 返回飯店放戰利品 (避開溫泉行李負擔)</span>
+                                <span>JR吉塚站 ➔ 博多站 ➔ 地鐵七隈線 ➔ 渡邊通站</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                返回 Amistad 飯店把滿滿戰利品放回房間輕鬆梳洗，確保明日前往黑川溫泉免受重行李拖累！
+                            </p>
+                        </div>
+
+                        <!-- Event 4 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-brand-600 text-sm">17:45 晚餐：藥院燒肉 NIKUICHI (已預約)</span>
+                                <span class="text-emerald-600 font-semibold">90分鐘極致和牛燒肉</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                從飯店步行前往附近的「藥院燒肉 NIKUICHI」，準時入座享受高品質特選和牛燒肉饗宴！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 4 CARD -->
+            <div class="day-card space-y-4" data-day="4">
+                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold">DAY 4</span>
+                            <span class="font-bold text-slate-800 text-base sm:text-lg">10/05 (一) 前往秘境黑川溫泉 ＆ 山しのぶ 溫泉會席體驗</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium">
+                            <i class="fa-solid fa-bed text-brand-500 mr-1"></i>住宿：黑川溫泉 山忍酒店（山しのぶ）
+                        </div>
+                    </div>
+
+                    <!-- Timeline Events -->
+                    <div class="relative border-l-2 border-slate-200 ml-3 pl-6 space-y-6">
+                        <!-- Event 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">上午：退房 ➜ 大行李寄放博多車站 ➜ 悠閒早午餐</span>
+                                <span>交通：渡邊通 ➔ 博多車站</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                辦理退房，將大行李箱寄放在博多車站行李置物櫃，只需帶輕便隨身包前往溫泉鄉。在博多車站悠閒享用早午餐或買車上點心。
+                            </p>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-brand-700 text-sm">13:03 搭乘高速巴士出發前往黑川溫泉</span>
+                                <span>乘車處：博多車站巴士總站</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                憑 09/05 預約成功之電子車票準時搭車，沿途欣賞阿蘇火山群自然風光，預計 16:00 前抵達黑川溫泉。
+                            </p>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-emerald-600 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-emerald-800 text-sm">16:00 入住山忍酒店（山しのぶ）＆ 精緻會席料理</span>
+                                <span>大自然包圍的露天風呂</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                Check-in 感受溫泉旅館無微不至的款待，享用當地時令食材製作的會席料理，浸泡在溪谷山林間的星空露天溫泉。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 5 CARD -->
+            <div class="day-card space-y-4" data-day="5">
+                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 rounded-lg bg-indigo-100 text-indigo-700 text-xs font-bold">DAY 5</span>
+                            <span class="font-bold text-slate-800 text-base sm:text-lg">10/06 (二) 晨湯 ➜ 重返博多 ➜ 東洋酒店 Check-in ➜ 運河城最後大補貨</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium">
+                            <i class="fa-solid fa-bed text-brand-500 mr-1"></i>住宿：東洋酒店 (Toyo Hotel)
+                        </div>
+                    </div>
+
+                    <!-- Timeline Events -->
+                    <div class="relative border-l-2 border-slate-200 ml-3 pl-6 space-y-6">
+                        <!-- Event 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">08:00 - 11:00 晨湯與日式早餐 ➜ 11:00 搭巴士返回博多</span>
+                                <span>乘車處：黑川溫泉巴士站</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                享受清晨芬多精晨湯與日式傳統早餐。11:00搭乘預約巴士返回博多，預計 14:00 抵達博多車站。
+                            </p>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-indigo-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">14:00 - 15:00 取行李 ＆ 東洋酒店 Check-in</span>
+                                <span>地點：東洋酒店（筑紫口）</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                在博多站領回寄放的大行李，步行至東洋酒店辦理入住放行李。
+                            </p>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-rose-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-rose-700 text-sm">15:00 之後：市區伴手禮 ＆ 博多運河城鞋類爆買</span>
+                                <span class="text-rose-600 font-semibold">【黃金插隊方案 B 極力推薦！】</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                從東洋酒店搭地鐵七隈線僅需1站至「櫛田神社前站」直達博多運河城 (Canal City Hakata)！
+                            </p>
+                            <div class="mt-2 bg-rose-50 border border-rose-200 rounded-xl p-3 text-xs text-rose-900 space-y-1">
+                                <div class="font-bold"><i class="fa-solid fa-bag-shopping text-rose-600 mr-1"></i>運河城必逛三強門市一網打盡：</div>
+                                <div>1. <strong>ASICS 官方直營店 (OPA 2F)</strong>：跑鞋與 Sportstyle 款式極齊全，附專業 Foot ID。</div>
+                                <div>2. <strong>Onitsuka Tiger 鬼塚虎 (北棟 1F)</strong>：店面寬敞，NIPPON MADE 手工鞋備貨充足。</div>
+                                <div>3. <strong>Alpen FUKUOKA (南棟)</strong>：全日本最大體育用品旗艦專區。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 6 CARD -->
+            <div class="day-card space-y-4" data-day="6">
+                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-bold">DAY 6</span>
+                            <span class="font-bold text-slate-800 text-base sm:text-lg">10/07 (三) 退房直奔機場 ➜ 免稅店最後採購 ➜ 完美返台</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium">
+                            <i class="fa-solid fa-plane-arrival text-brand-500 mr-1"></i>返抵台灣 (TPE)
+                        </div>
+                    </div>
+
+                    <!-- Timeline Events -->
+                    <div class="relative border-l-2 border-slate-200 ml-3 pl-6 space-y-6">
+                        <!-- Event 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-slate-500 border-4 border-white shadow"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-slate-700 text-sm">08:00 - 08:30 退房 ➜ 計程車直奔福岡機場國際航廈</span>
+                                <span>車程約 12-15 分鐘，車資約 1,500 日圓</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                行李最重，強烈建議直接攔計程車直達國際航廈，免去拖重行李上下轉車的疲累。
+                            </p>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-brand-700 text-sm">08:55 抵達機場辦理登機 ＆ 出境免稅店採購</span>
+                                <span class="text-amber-600 font-semibold">【採買方案 C：機場鬼塚虎免稅店】</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                通關後在 3F 出境管制區全新的 <strong>Onitsuka Tiger 鬼塚虎專賣店</strong> 做最後巡禮！優勢：不佔託運行李重量與箱內空間，直接免稅入手！
+                            </p>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-white"></div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-400 mb-1">
+                                <span class="font-bold text-emerald-700 text-sm">10:55 - 12:25 搭乘虎航 IT241 順利返抵台灣</span>
+                                <span>結束精彩九州之旅</span>
+                            </div>
+                            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                帶著滿滿戰利品與溫泉回憶，搭班機平安抵達桃園國際機場。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transit & Bus Ticket S.O.P Strategy Section -->
+        <section id="transit-guide" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold mb-2">
+                    <i class="fa-solid fa-bus text-sky-600"></i>
+                    <span>無縫轉乘全攻略</span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-800">系島與黑川溫泉 高速巴士預約與乘車戰略</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Itoshima Bus Guide Card -->
+                <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                        <h4 class="font-bold text-slate-800 text-base flex items-center gap-2">
+                            <i class="fa-solid fa-umbrella-beach text-sky-500"></i>
+                            <span>10/03 (六) 系島 West Coast Liner 攻略</span>
+                        </h4>
+                        <span class="text-xs bg-sky-100 text-sky-700 px-2.5 py-1 rounded-full font-bold">先來後到制</span>
+                    </div>
+
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong>強烈建議博多站上車：</strong> 博多車站巴士總站 3樓 32號乘車處為起點站。天神站僅為路邊公車站（天神四丁目），週六極易因滿員無法上車！
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <div>
+                                <strong>my route App 一日券優惠：</strong> 售價 2,000 日圓（含高速巴士往返與系島區域巴士），比現場單買 2,300 日圓現省 300 日圓，且具備彈性搭乘 Plan B 效益。
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-exclamation text-amber-500 mt-1"></i>
+                            <div>
+                                <strong>最新站牌提醒：</strong> 2026年已取消舊站牌「夫婦岩前」，請一律在<strong>「二見ヶ浦・PALMBEACH前」</strong>站牌上下車。
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kurokawa Bus Rush SOP Card -->
+                <div class="bg-amber-50/60 rounded-2xl p-5 border border-amber-200 space-y-4">
+                    <div class="flex items-center justify-between border-b border-amber-200 pb-3">
+                        <h4 class="font-bold text-amber-900 text-base flex items-center gap-2">
+                            <i class="fa-solid fa-hot-tub-person text-amber-600"></i>
+                            <span>10/5 - 10/6 黑川溫泉巴士 搶票 S.O.P</span>
+                        </h4>
+                        <span class="text-xs bg-amber-200 text-amber-900 px-2.5 py-1 rounded-full font-bold">絕對稀缺資源</span>
+                    </div>
+
+                    <div class="space-y-2 text-xs sm:text-sm text-slate-700">
+                        <div class="font-bold text-amber-900">搶票步驟流程 (09/05 08:00 AM)：</div>
+                        <ol class="list-decimal list-inside space-y-1.5 pl-1 text-slate-600">
+                            <li>提前至 highwaybus.com 註冊完畢會員。</li>
+                            <li>09/05 08:00 準時切換至預約網頁。</li>
+                            <li><strong>去程預約：</strong> 鎖定 10/05 (一) 13:03 博多總站發車班次。</li>
+                            <li><strong>回程預約：</strong> 鎖定 10/06 (二) 11:00 黑川溫泉發車班次。</li>
+                            <li>確認電子車票並存入手機相簿。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASICS & Onitsuka Tiger Shopping Guide Section -->
+        <section id="shopping" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+                <div>
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-bold mb-2">
+                        <i class="fa-solid fa-shoe-prints text-rose-600"></i>
+                        <span>專屬購物指南</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-slate-800">福岡 ASICS 亞瑟士與鬼塚虎 採買特輯</h3>
+                </div>
+                <div class="text-xs text-slate-500">
+                    *註：原天神西通 ASICS 與 Marinoa City Outlets 已歇業，請以此特輯門市為準。
+                </div>
+            </div>
+
+            <!-- Insertion Option Tabs -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Option A Card -->
+                <div class="border border-slate-200 rounded-2xl p-4 hover:border-amber-400 hover:shadow-md transition bg-slate-50/50">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded bg-amber-100 text-amber-800 text-xs font-bold">方案 A</span>
+                        <span class="text-xs text-slate-500">Day 2 下午</span>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">鬼塚虎 天神 PARCO 店</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        天神 Mina/AEON 採購完畢後，順路沿地下街步行5分鐘至 PARCO 本館 1F 採購 MEXICO 66 等經典熱門鞋款。
+                    </p>
+                    <span class="text-[11px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">適合：專攻鬼塚虎經典款</span>
+                </div>
+
+                <!-- Option B Card (Recommended) -->
+                <div class="border-2 border-rose-400 rounded-2xl p-4 hover:shadow-md transition bg-rose-50/30 relative">
+                    <div class="absolute -top-3 right-4 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
+                        極力推薦 ⭐
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded bg-rose-200 text-rose-800 text-xs font-bold">方案 B</span>
+                        <span class="text-xs text-slate-500">Day 5 下午</span>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">博多運河城 一網打盡雙品牌</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        溫泉返回博多後，地鐵1站直達運河城！一次掃齊 <strong>ASICS 直營店(OPA 2F)</strong>、<strong>鬼塚虎(北棟1F)</strong> 與 <strong>Alpen FUKUOKA</strong>！
+                    </p>
+                    <span class="text-[11px] text-rose-700 bg-rose-100 px-2 py-0.5 rounded border border-rose-300">最便利：動線順、品項全</span>
+                </div>
+
+                <!-- Option C Card -->
+                <div class="border border-slate-200 rounded-2xl p-4 hover:border-emerald-400 hover:shadow-md transition bg-slate-50/50">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-bold">方案 C</span>
+                        <span class="text-xs text-slate-500">Day 6 離境前</span>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">福岡機場 3F 出境免稅店</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        過海關後直接在全新的鬼塚虎免稅專賣店採買。完全不佔託運行李箱空間與重量，享受額外免稅好康！
+                    </p>
+                    <span class="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">優勢：免提鞋盒跑溫泉</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pre-departure & Trip Checklist Module -->
+        <section id="checklist" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div>
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-2">
+                        <i class="fa-solid fa-square-check text-emerald-600"></i>
+                        <span>即時記憶清單</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-slate-800">旅程準備與任務檢查表</h3>
+                </div>
+                <button onclick="resetChecklist()" class="text-xs text-slate-400 hover:text-slate-600 underline">
+                    重置狀態
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="checklist-container">
+                <!-- Check Item 1 -->
+                <label class="flex items-start space-x-3 p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                    <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-600 rounded border-slate-300 focus:ring-brand-500" onchange="saveChecklistState()">
+                    <span class="text-xs sm:text-sm text-slate-700"><strong>09/05 08:00 AM：</strong> 搶購黑川溫泉去回程巴士票</span>
+                </label>
+
+                <!-- Check Item 2 -->
+                <label class="flex items-start space-x-3 p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                    <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-600 rounded border-slate-300 focus:ring-brand-500" onchange="saveChecklistState()">
+                    <span class="text-xs sm:text-sm text-slate-700">下載 <strong>my route App</strong> 並註冊會員</span>
+                </label>
+
+                <!-- Check Item 3 -->
+                <label class="flex items-start space-x-3 p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                    <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-600 rounded border-slate-300 focus:ring-brand-500" onchange="saveChecklistState()">
+                    <span class="text-xs sm:text-sm text-slate-700">填寫日本 <strong>Visit Japan Web</strong> 入境卡與海關申報</span>
+                </label>
+
+                <!-- Check Item 4 -->
+                <label class="flex items-start space-x-3 p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                    <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-600 rounded border-slate-300 focus:ring-brand-500" onchange="saveChecklistState()">
+                    <span class="text-xs sm:text-sm text-slate-700">確認 <strong>10/04 17:45 藥院燒肉 NIKUICHI</strong> 預約憑證</span>
+                </label>
+
+                <!-- Check Item 5 -->
+                <label class="flex items-start space-x-3 p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                    <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-600 rounded border-slate-300 focus:ring-brand-500" onchange="saveChecklistState()">
+                    <span class="text-xs sm:text-sm text-slate-700">準備黑川溫泉過夜用<strong>「輕便手提袋」</strong>（大行李寄博多站）</span>
+                </label>
+
+                <!-- Check Item 6 -->
+                <label class="flex items-start space-x-3 p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                    <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-600 rounded border-slate-300 focus:ring-brand-500" onchange="saveChecklistState()">
+                    <span class="text-xs sm:text-sm text-slate-700">準備護照、日幣現金、信用卡與網卡/漫遊</span>
+                </label>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+            <div class="flex items-center justify-center space-x-2 text-white font-bold text-base">
+                <i class="fa-solid fa-map-location-dot text-amber-500"></i>
+                <span>福岡 · 系島 · 黑川溫泉 6天5夜完整指南</span>
+            </div>
+            <p class="text-xs text-slate-500">
+                本網頁完全依據 Notebook sources《福岡系島黑川溫泉六天五夜完整行程指南》資料精細生成
+            </p>
+            <p class="text-[11px] text-slate-600">
+                &copy; 2026 Fukuoka Travel Guide. All rights reserved.
+            </p>
         </div>
+    </footer>
 
-        <div class="card">
-            <div class="time">⏰ 傍晚</div>
-            <div class="spot-name">🏨 Amistad Hotel Fukuoka (入住登記)</div>
-            <div class="memo">💡 備忘錄：搭乘地鐵或計程車直接前往飯店辦理 Check-in，先放置行李。</div>
-            <a href="https://maps.app.goo.gl/wqFSnPhtiMDMxn5D9" class="btn-map">🏨 Amistad Hotel Fukuoka飯店</a>
-        </div>
+    <!-- Interactive Script -->
+    <script>
+        // Countdown Timer Script for 2026/09/05 08:00 AM Taiwan Time
+        function updateCountdown() {
+            // Target date: September 5, 2026 08:00:00 GMT+8
+            const targetDate = new Date('2026-09-05T08:00:00+08:00').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
 
-        <div class="card">
-            <div class="time">⏰ 晚餐</div>
-            <div class="spot-name">🍜 博多車站 / 地下街美食</div>
-            <div class="memo">💡 備忘錄：步行前往博多車站，享用博多豚骨拉麵、一口餃子或牛腸鍋。</div>
-            <a href="https://maps.app.goo.gl/u2qpkLg8RM1mV3CJ6" class="btn-map">🍜 博多車站</a>
-        </div>
-    </div>
-    <!-- ================= DAY 1 結束 ================= -->
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
+                document.getElementById('count-days').innerText = String(days).padStart(2, '0');
+                document.getElementById('count-hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('count-mins').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('count-secs').innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('count-days').innerText = '00';
+                document.getElementById('count-hours').innerText = '00';
+                document.getElementById('count-mins').innerText = '00';
+                document.getElementById('count-secs').innerText = '00';
+            }
+        }
 
-    <!-- ================= DAY 2 開始 ================= -->
-    <!-- 注意這裡加上了 id="day2" -->
-    <div class="day-section" id="day2">
-        <div class="day-title">🗓️ 10/3 (六) Day 2：系島藍海一日遊 ＆ 天神購物 ＆ 長濱屋台夜</div>
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
-        <div class="card">
-            <div class="time">⏰ 09:00 - 09:15</div>
-            <div class="spot-name">🚌 博多車站巴士總站 (3樓 32號乘車處)</div>
-            <div class="memo">💡 備忘錄：從飯店步行 4 分鐘至「渡邊通站」搭地鐵七隈線直達博多站。前往巴士總站。<br>★ 購票提醒：出發前先用手機 my route App 購買 「糸島半島 1day 高乘車券（含高速巴士版）」（每人 2,000 日圓）。在起點上車能確保有座位！</div>
-            <a href="https://maps.app.goo.gl/NLsYD1oNuovkXpDM9" class="btn-map">🚌 博多巴士總站</a>
-        </div>
+        // Day Filtering Logic
+        function filterDay(day) {
+            const allCards = document.querySelectorAll('.day-card');
+            const allTabs = document.querySelectorAll('.day-tab');
 
-        <div class="card">
-            <div class="time">⏰ 09:28 - 10:30</div>
-            <div class="spot-name">🚌 West Coast Liner 高速巴士之旅</div>
-            <div class="memo">💡 備忘錄：搭乘 09:28 發車的 West Coast Liner（西海岸快線）高速巴士，一車直達二見ヶ浦。</div>
-        </div>
+            // Reset tab styles
+            allTabs.forEach(tab => {
+                tab.classList.remove('bg-slate-900', 'text-white', 'shadow-sm');
+                tab.classList.add('text-slate-600', 'bg-white', 'border', 'border-slate-200');
+            });
 
-        <div class="card">
-            <div class="time">⏰ 10:30 - 10:45</div>
-            <div class="spot-name">⛩️ 二見ヶ浦 白色海上鳥居與夫婦岩</div>
-            <div class="memo">💡 備忘錄：在「二見ヶ浦・PALMBEACH前」站牌下車。步行 2-4 分鐘至沙灘，欣賞並拍攝絕美神聖的白色海上鳥居與夫婦岩。</div>
-            <a href="https://maps.app.goo.gl/Zra2BxSgCTU9qMrN9" class="btn-map">⛩️ 二見ヶ浦 白色海上鳥居與夫婦岩</a>
-        </div>
+            // Highlight selected tab
+            const activeTab = document.getElementById(day === 'all' ? 'tab-all' : `tab-${day}`);
+            if (activeTab) {
+                activeTab.classList.remove('text-slate-600', 'bg-white', 'border', 'border-slate-200');
+                activeTab.classList.add('bg-slate-900', 'text-white', 'shadow-sm');
+            }
 
-        <div class="card">
-            <div class="time">⏰ 10:45 - 12:30</div>
-            <div class="spot-name">🐟 糸島海鮮堂 二見ヶ浦本店 (豪華海景午餐)</div>
-            <div class="memo">💡 備忘錄：步行 2 分鐘即達。推薦必點：「特上海鮮丼」與「明太子玉子燒丼」。現場候位時，強烈建議指定靠窗座位，邊賞海景邊享用澎湃海鮮！</div>
-            <a href="https://maps.app.goo.gl/yjNvocKbamLjEgmY7" class="btn-map">🐟 糸島海鮮堂 二見ヶ浦本店</a>
-        </div>
+            // Show/Hide cards
+            allCards.forEach(card => {
+                if (day === 'all' || card.getAttribute('data-day') === String(day)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
-        <div class="card">
-            <div class="time">⏰ 12:30 - 14:40</div>
-            <div class="spot-name">☕ 海景下午茶 ＆ 天使之翼拍照</div>
-            <div class="memo">💡 備忘錄：在 PALM BEACH 廣場旁拍攝經典的 「天使之翼」牆面。接著前往享用蓬鬆舒芙蕾或喝下午茶。</div>
-            <a href="https://maps.app.goo.gl/cgSgC8zYdzq9MvNd8" class="btn-map">📸 天使之翼定位</a>
-            <a href="https://maps.app.goo.gl/gtqgkN5vZvLvmUEM9" class="btn-map btn-sub">🥞 糸島茶房</a>
-            <a href="https://maps.app.goo.gl/vyiQJBjmLWE8kGku9" class="btn-map btn-sub">🍹 SUNSET Cafe</a>
-        </div>
+        // Save & Load Checklist using localStorage
+        function saveChecklistState() {
+            const checkboxes = document.querySelectorAll('.chk-item');
+            const states = Array.from(checkboxes).map(cb => cb.checked);
+            try {
+                localStorage.setItem('fukuoka_trip_chk_state', JSON.stringify(states));
+            } catch (e) {
+                console.log('LocalStorage unavailable');
+            }
+        }
 
-        <div class="card">
-            <div class="time">⏰ 14:50 - 15:45</div>
-            <div class="spot-name">🚌 搭直達巴士返回天神</div>
-            <div class="memo">💡 備忘錄：在下車的原站牌搭乘 14:50 發車的 West Coast Liner，在「天神四丁目」下車。</div>
-            <a href="https://maps.app.goo.gl/uiq44i4Y1WpFzhNW9" class="btn-map">🛍️  Mina 天神</a>
-        </div>>
+        function loadChecklistState() {
+            try {
+                const saved = localStorage.getItem('fukuoka_trip_chk_state');
+                if (saved) {
+                    const states = JSON.parse(saved);
+                    const checkboxes = document.querySelectorAll('.chk-item');
+                    checkboxes.forEach((cb, idx) => {
+                        if (states[idx] !== undefined) {
+                            cb.checked = states[idx];
+                        }
+                    });
+                }
+            } catch (e) {
+                console.log('Error loading saved checklist');
+            }
+        }
 
-        <div class="card">
-            <div class="time">⏰ 15:45 - 18:00</div>
-            <div class="spot-name">🛍️ 天神北側平價購物天堂大掃貨 (Mina 天神 & AEON)</div>
-            <div class="memo">💡 備忘錄：下車正前方即為 Mina 天神（與隔壁 AEON 相通）。<br>・4F LOFT：日系文具與美妝雜貨。<br>・1F~3F：九州最大 UNIQLO ＆ GU 旗艦店。<br>・B1F：3COINS+plus 雜貨。<br>・隔壁 AEON 超市：採購麝香葡萄、泡麵與日本零食。</div>
-            <a href="https://maps.app.goo.gl/uf4MEmvfpqRZLqEi9" class="btn-map">🛍️  Mina 天神</a>
-            <a href="https://maps.app.goo.gl/5PwZScDxpDfApZFu8" class="btn-map btn-sub">🍏 AEON 超市</a>
-        </div>
+        function resetChecklist() {
+            const checkboxes = document.querySelectorAll('.chk-item');
+            checkboxes.forEach(cb => cb.checked = false);
+            try {
+                localStorage.removeItem('fukuoka_trip_chk_state');
+            } catch (e) {}
+        }
 
-        <div class="card">
-            <div class="time">⏰ 18:00 - 18:20</div>
-            <div class="spot-name">🚕 搭計程車前往長濱屋台</div>
-            <div class="memo">💡 備忘錄：提著滿滿戰利品，建議直接在 AEON 門口攔計程車直達長濱屋台區（車程約 5 分鐘，車資約 1,000 日圓）。</div>
-        </div>
-
-        <div class="card">
-            <div class="time">⏰ 18:20 - 20:30</div>
-            <div class="spot-name">🍻 長濱屋台 - 屋台のたまちゃん本館 (晚餐)</div>
-            <div class="memo">💡 備忘錄：入座 18:00 營業的人氣屋台。大啖現烤炭火雞肉串、飛魚高湯黑關東煮、鐵板燒拉麵，並用一碗道地的長濱豚骨拉麵完美收尾！</div>
-            <a href="https://maps.app.goo.gl/suNQU3BG9vA4f4TP8" class="btn-map">🍻 たまちゃん屋台</a>
-        </div>
-
-        <div class="card">
-            <div class="time">⏰ 20:30 之後</div>
-            <div class="spot-name">🏨 輕鬆返回渡邊通飯店</div>
-            <div class="memo">💡 備忘錄：在屋台旁直接搭乘計程車回 Amistad 飯店（車程約 10 分鐘，車資約 1,500 日圓），放下戰利品，輕鬆休息。</div>
-            <<a href="https://maps.app.goo.gl/wqFSnPhtiMDMxn5D9" class="btn-map">🏨 Amistad Hotel Fukuoka飯店</a>
-        </div>
-    </div>
-    <!-- ================= DAY 2 結束 ================= -->
-    <!-- ================= DAY 3 開始 ================= -->
-    <div class="day-section" id="day3">
-        <div class="day-title">🗓️ 10/4 (日) Day 3：天神美食 ➜ Workman 機能服採買 ➜ 飯店放空 ➜ 藥院和牛燒肉大餐</div>
-
-        <!-- 節點 1 -->
-        <div class="card">
-            <div class="time">⏰ 上午</div>
-            <div class="spot-name">🍜 天神美食散策（明太子麵包 & 元祖明太子重）</div>
-            <div class="memo">💡 備忘錄：從飯店出發前往天神，買超人氣的 明太子麵包，接著步行至 元祖博多明太子重 享用極品明太子重。吃飽後在天神商圈稍微逛街散步。</div>
-            <a href="https://maps.app.goo.gl/E7cXiaeRSxyxiD1x8" class="btn-map">元祖博多明太子重</a>
-        </div>
-
-        <!-- 節點 2 -->
-        <div class="card">
-            <div class="time">⏰ 13:30 - 15:30</div>
-            <div class="spot-name">👕 Workman Plus 福岡吉塚店 (機能服大掃貨)</div>
-            <div class="memo">💡 備忘錄：13:30 從天神直接搭計程車前往（車程僅約 12-15 分鐘，車資約 1,500~2,000 日圓，三人分攤省時又划算！）。在店內選購高 CP 值、機能與時尚感兼具的防風大衣、戶外服飾與防滑鞋履。</div>
-            <a href="https://maps.app.goo.gl/cJQANJpZGFCvSpAB6" class="btn-map">👕  Workman 吉塚店</a>
-        </div>
-
-        <!-- 節點 3 -->
-        <div class="card">
-            <div class="time">⏰ 15:30 - 16:30</div>
-            <div class="spot-name">🏨 回飯店放戰利品、輕鬆梳洗放空</div>
-            <div class="memo">💡 備忘錄：從吉塚站搭乘 JR 鹿児島本線（只需 3 分鐘）回到 博多站。轉乘地鐵七隈線直達 「渡邊通站」（約 5 分鐘）。步行 4 分鐘回 Amistad 飯店，把戰利品放回房間並輕鬆休息、梳洗，完美避開提著大包小包的負擔！</div>
-            <a href="https://maps.app.goo.gl/wqFSnPhtiMDMxn5D9" class="btn-map">🏨 Amistad Hotel Fukuoka飯店</a>
-        </div>
-
-        <!-- 節點 4 -->
-        <div class="card">
-            <div class="time">⏰ 17:45</div>
-            <div class="spot-name">🔥 藥院燒肉 NIKUICHI (已預約和牛大餐)</div>
-            <div class="memo">💡 備忘錄：★ 已預約！17:45 準時入座。從飯店輕鬆步行至附近的 藥院燒肉 NIKUICHI，享受 90 分鐘的極致和牛燒肉盛宴，完美順路！</div>
-            <a href="https://maps.app.goo.gl/CJWhkSRWLfM635CH7" class="btn-map">🔥 藥院燒肉 NIKUICHI</a>
-        </div>
-    </div>
-    <!-- ================= DAY 3 結束 ================= -->
-    <!-- ================= DAY 4 開始 ================= -->
-    <div class="day-section" id="day4">
-        <div class="day-title">🗓️ 10/5 (一) Day 4：出發黑川溫泉秘境</div>
-
-        <div class="card">
-            <div class="time">⏰ 上午</div>
-            <div class="spot-name">🎒 博多車站寄放行李 ＆ 享用早午餐</div>
-            <div class="memo">💡 備忘錄：辦理退房，將大行李寄放在博多車站的行李寄放櫃。由於搭乘下午 13:03 的公車，早上的時間非常充裕，可在博多車站悠閒吃早餐或買車上點心。</div>
-            <a href="https://maps.app.goo.gl/u2qpkLg8RM1mV3CJ6" class="btn-map">🍜 博多車站</a>
-        </div>
-
-        <div class="card">
-            <div class="time">⏰ 13:03 - 16:00</div>
-            <div class="spot-name">🚌 博多總站搭乘高速巴士 ➜ 黑川溫泉</div>
-            <div class="memo">💡 備忘錄：前往博多車站巴士總站乘車，搭乘 13:03 的高速巴士啟程前往黑川溫泉。</div>
-            <a href="https://maps.app.goo.gl/NLsYD1oNuovkXpDM9" class="btn-map">🚌 博多巴士總站</a>
-        </div>
-
-        <div class="card">
-            <div class="time">⏰ 16:00 之後</div>
-            <div class="spot-name">♨️ 黑川溫泉 山忍酒店（山しのぶ）入住</div>
-            <div class="memo">💡 備忘錄：預計於 16:00 前抵達黑川溫泉辦理入住。享用極具特色的精緻溫泉會席料理，並享受被大自然包圍的戶外露天溫泉。</div>
-            <a href="https://maps.app.goo.gl/jrUKGifR8YN9VLiB6" class="btn-map">♨️山忍酒店</a>
-        </div>
-    </div>
-    <!-- ================= DAY 4 結束 ================= -->
-
-    
-    <!-- ================= DAY 5 開始 ================= -->
-    <div class="day-section" id="day5">
-        <div class="day-title">🗓️ 10/6 (二) Day 5：溫泉晨湯，重返博多最後補貨</div>
-
-        <!-- 節點 1 -->
-        <div class="card">
-            <div class="time">⏰ 上午</div>
-            <div class="spot-name">♨️ 悠閒晨湯 ➜ 11:00 搭車返回</div>
-            <div class="memo">💡 備忘錄：早起在清新的山林空氣中享受晨湯，接著享用溫泉旅館的美味日式早餐。退房後前往黑川溫泉巴士站，搭乘 11:00 的高速巴士返回博多車站。</div>
-            <!-- 黑川溫泉巴士站 官方真實實體短網址 -->
-            <a href="https://maps.app.goo.gl/GtQXSTqEUY5KFVHN6" class="btn-map">🚌 黑川溫泉巴士站</a>
-        </div>
-
-        <!-- 節點 2 -->
-        <div class="card">
-            <div class="time">⏰ 14:00 之後</div>
-            <div class="spot-name">🏨 東洋酒店 Check-in（博多站筑紫口）</div>
-            <div class="memo">💡 備忘錄：預計於下午 14:00 前回到博多車站，領取大行李。步行前往附近的「東洋酒店」辦理 Check-in 置放行李。</div>
-            <!-- 您提供的東洋酒店官方實體短網址 -->
-            <a href="https://maps.app.goo.gl/iSNGYDkQYc2JXvtN6" class="btn-map">🏨 東洋酒店</a>
-        </div>
-
-        <!-- 節點 3 -->
-        <div class="card">
-            <div class="time">⏰ 下午 - 晚上</div>
-            <div class="spot-name">🛍️ 博多車站週邊（AMU PLAZA、阪急、Yodobashi）大補貨</div>
-            <div class="memo">💡 備忘錄：在博多車站週邊的強大商圈（AMU PLAZA、博多阪急百貨、Yodobashi 多媒體電器店等）進行藥妝與伴手禮的最後大補貨！</div>
-            <!-- AMU PLAZA 博多 官方真實實體短網址 -->
-            <a href="https://maps.app.goo.gl/ywBGacNKhcVamQ898" class="btn-map">🛍️ AMU PLAZA 位置</a>
-            <!-- Yodobashi 博多店 官方真實實體短網址 -->
-            <a href="https://maps.app.goo.gl/FqZzvxEbrpFRHh4Y7" class="btn-map btn-sub">📷 Yodobashi </a>
-        </div>
-    </div>
-    <!-- ================= DAY 5 結束 ================= -->
-
-
-    <!-- ================= DAY 6 開始 ================= -->
-    <div class="day-section" id="day6">
-        <div class="day-title">🗓️ 10/7 (三) Day 6：輕鬆退房，完美返台</div>
-
-        <!-- 節點 1 -->
-        <div class="card">
-            <div class="time">⏰ 上午 08:30</div>
-            <div class="spot-name">🚕 睡飽退房 ➜ 直奔福岡機場國際航廈</div>
-            <div class="memo">💡 備忘錄：在東洋酒店睡飽，悠閒辦理退房。因為最後一天行李最重，強烈建議直接搭乘計程車直達福岡機場國際航廈（車程約 12-15 分鐘，車資約 1,500 日圓，三人均攤超划算，免去拖重行李上下轉車的疲憊！）。</div>
-            <!-- 福岡機場國際航廈 官方真實實體短網址 -->
-            <a href="https://maps.app.goo.gl/b4hyMfApZbdkaB3h9" class="btn-map">🚖 福岡機場國際航廈</a>
-        </div>
-
-        <!-- 節點 2 -->
-        <div class="card">
-            <div class="time">⏰ 上午 08:55 - 12:25</div>
-            <div class="spot-name">✈️ 08:55 辦理登機 ➜ 10:55 虎航返台</div>
-            <div class="memo">💡 備忘錄：08:55 準時抵達機場辦理登機與退稅手續。搭乘虎航 IT241 (10:55 - 12:25) 班機返回台灣，結束精彩的福岡與溫泉療癒之旅！</div>
-        </div>
-    </div>
-    <!-- ================= DAY 6 結束 ================= -->
-
-</div> <!-- .container 的結尾 -->
-
+        // Initialize state on window load
+        window.onload = function() {
+            loadChecklistState();
+        };
+    </script>
 </body>
 </html>
