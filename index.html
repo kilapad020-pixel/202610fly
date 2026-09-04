@@ -45,7 +45,7 @@
             scroll-behavior: smooth;
         }
         .hero-bg {
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.75)), 
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.8)), 
                         url('https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
         }
         .bg-pattern {
@@ -66,6 +66,7 @@
             </div>
             <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
                 <a href="#flight" class="hover:text-brand-600 transition">航班資訊</a>
+                <a href="#notice" class="hover:text-brand-600 transition">行前叮嚀</a>
                 <a href="#highlights" class="hover:text-brand-600 transition">旅程亮點</a>
                 <a href="#itinerary" class="hover:text-brand-600 transition">每日行程</a>
                 <a href="#hotels" class="hover:text-brand-600 transition">精選住宿</a>
@@ -78,7 +79,7 @@
         </div>
     </header>
 
-    <!-- Hero 封面視訊 / 區塊 -->
+    <!-- Hero 封面區塊 -->
     <section class="relative hero-bg min-h-screen flex items-center justify-center text-center text-white px-4 pt-16">
         <div class="max-w-4xl mx-auto space-y-6 animate-fade-in">
             <div class="inline-block bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-medium px-4 py-1.5 rounded-full tracking-widest uppercase mb-2">
@@ -88,10 +89,10 @@
                 福岡 10 月溫泉之旅
             </h1>
             <p class="text-lg sm:text-xl text-stone-200 font-light max-w-2xl mx-auto leading-relaxed">
-                糸島絕美海景 ✕ 黑川溫泉秘境療癒 ✕ 博多在地排隊美食饗宴
+                糸島絕美海景 ✕ 黑川溫泉秘境療癒 ✕ 在地美食與日潮血拼
             </p>
 
-            <!-- 簡單出發倒數計時資訊 -->
+            <!-- 數據資訊看板 -->
             <div class="pt-8 flex justify-center">
                 <div class="grid grid-cols-3 gap-4 sm:gap-8 text-center bg-black/40 backdrop-blur-md p-4 sm:p-6 rounded-2xl border border-white/10 max-w-md w-full">
                     <div>
@@ -110,7 +111,7 @@
             </div>
 
             <div class="pt-8">
-                <a href="#itinerary" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/30 text-white hover:bg-white hover:text-brand-900 transition duration-300 animate-bounce">
+                <a href="#flight" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/30 text-white hover:bg-white hover:text-brand-900 transition duration-300 animate-bounce">
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
             </div>
@@ -143,7 +144,7 @@
                 <div class="flex items-center justify-between pt-2 border-t border-stone-100">
                     <div class="text-left">
                         <span class="text-2xl font-bold text-gray-900">14:25</span>
-                        <span class="block text-xs text-stone-500">台北桃園 (TPE)</span>
+                        <span class="block text-xs text-stone-500">台北桃園 (TPE T1)</span>
                     </div>
                     <div class="flex flex-col items-center px-4">
                         <span class="text-xs text-stone-400">2h 25m</span>
@@ -187,8 +188,54 @@
                     </div>
                     <div class="text-right">
                         <span class="text-2xl font-bold text-gray-900">12:25</span>
-                        <span class="block text-xs text-stone-500">台北桃園 (TPE)</span>
+                        <span class="block text-xs text-stone-500">台北桃園 (TPE T1)</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⚠️ 行前重要叮嚀 (Travel Tips) -->
+    <section id="notice" class="py-16 bg-amber-50/60 border-y border-amber-200/60 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">旅程重要注意情報與行前叮嚀</h2>
+                    <p class="text-xs text-stone-500">CRUCIAL TRAVEL TIPS & WARNINGS</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 航班與機場規範 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 text-brand-800 font-bold">
+                        <i class="fa-solid fa-plane-circle-check text-brand-600"></i>
+                        <h3>航班與機場過關叮嚀</h3>
+                    </div>
+                    <ul class="space-y-2 text-xs text-stone-600 leading-relaxed list-disc list-inside">
+                        <li><strong class="text-gray-800">桃園機場 (TPE T1)</strong>：台灣虎航位於第一航廈，請於 <strong class="text-amber-700">12:25 前</strong> 抵達辦理報到與託運。</li>
+                        <li><strong class="text-gray-800">手提行李限制</strong>：虎航限制每人最多 2 件手提行李，合計不得超過 <strong class="text-rose-600">10 公斤</strong>，過磅前請分配好重量。</li>
+                        <li><strong class="text-gray-800">入境流程</strong>：請預先於 <a href="https://www.vjw.digital.go.jp/" target="_blank" class="text-brand-600 underline">Visit Japan Web</a> 完成填寫並截圖 QR Code，可節省通關時間。</li>
+                        <li><strong class="text-gray-800">回程離境預警 (IT241)</strong>：福岡機場國際線安檢極為耗時，請於 Day 6 早上 <strong class="text-amber-700">08:00 退房出發，08:55 前抵達機場</strong>。</li>
+                    </ul>
+                </div>
+
+                <!-- 黑川溫泉巴士資訊 -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 text-brand-800 font-bold">
+                        <i class="fa-solid fa-bus text-brand-600"></i>
+                        <h3>黑川溫泉高速巴士預約指南</h3>
+                    </div>
+                    <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 text-xs text-amber-900 space-y-1">
+                        <p class="font-bold">⚠️ 全車為對號預約制，乘車時請務必出示電子或實體憑證</p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-stone-600 leading-relaxed">
+                        <li><strong class="text-gray-800">Day 4 去程：</strong>九州産交バス <span class="bg-stone-100 px-2 py-0.5 rounded font-mono text-brand-800">５１２０６ 便</span><br>13:03 博多巴士總站發車 ➔ 16:03 抵達黑川溫泉</li>
+                        <li><strong class="text-gray-800">Day 5 回程：</strong>九州産交バス <span class="bg-stone-100 px-2 py-0.5 rounded font-mono text-brand-800">５１２０３ 便</span><br>11:00 黑川溫泉發車 ➔ 14:10 抵達博多巴士總站</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -238,7 +285,7 @@
                                 黑川溫泉秘境「山忍」療癒之宿
                             </h3>
                             <p class="text-stone-600 text-sm leading-relaxed">
-                                搭乘巴士直達秘境黑川溫泉，入住極具禪意的溫泉旅館「山忍 (Yamashinobu)」。在群山環繞下享受溫暖泉水與日式款待，徹底釋放身心壓力。
+                                搭乘高速巴士直達秘境黑川溫泉，入住極具禪意的溫泉旅館「山忍 (Yamashinobu)」。在群山環繞下享受溫暖泉水與日式款待，徹底釋放身心壓力。
                             </p>
                         </div>
                     </div>
@@ -313,8 +360,8 @@
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">12:25</div>
-                        <h4 class="text-base font-bold text-gray-900 mt-1">🎒 桃園機場第一航廈</h4>
-                        <p class="text-sm text-stone-600 mt-1">抵達機場辦理登機與行李託運（建議提早 2 小時抵達）。</p>
+                        <h4 class="text-base font-bold text-gray-900 mt-1">🎒 桃園機場第一航廈 (TPE)</h4>
+                        <p class="text-sm text-stone-600 mt-1">抵達機場辦理登機與行李託運（建議提早 2 小時抵達，留意手提行李限重 10 公斤）。</p>
                     </div>
 
                     <div class="relative">
@@ -328,7 +375,7 @@
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">17:50</div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🛬 福岡國際機場 (FUK)</h4>
-                        <p class="text-sm text-stone-600 mt-1">順利抵達福岡，辦理入境與領取行李。</p>
+                        <p class="text-sm text-stone-600 mt-1">順利抵達福岡，準備好 Visit Japan Web QR Code 快速通關與領取行李。</p>
                     </div>
 
                     <div class="relative">
@@ -342,7 +389,7 @@
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">21:04</div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🏨 Amistad Hotel Fukuoka</h4>
-                        <p class="text-sm text-stone-600 mt-1">辦理入住，舒適歇息準備明日行程。</p>
+                        <p class="text-sm text-stone-600 mt-1">辦理入住，舒適歇息準備明日精彩行程。</p>
                     </div>
                 </div>
             </div>
@@ -389,21 +436,21 @@
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">16:00 <span class="text-xs text-stone-400 font-normal">｜ 停留 2 小時</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🛍️ Mina 天神</h4>
-                        <p class="text-sm text-stone-600 mt-1">返回市區，在天神熱門商場熱情購物。</p>
+                        <p class="text-sm text-stone-600 mt-1">返回市區，在天神熱門商場進行日潮血拼與採購。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">18:11 <span class="text-xs text-stone-400 font-normal">｜ 停留 1 小時</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🍜 釜喜利烏龍麵</h4>
-                        <p class="text-sm text-stone-600 mt-1">品嚐福岡道地風味烏龍麵。</p>
+                        <p class="text-sm text-stone-600 mt-1">品嚐福岡在地風味與香甜高湯烏龍麵。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">19:17 <span class="text-xs text-stone-400 font-normal">｜ 停留 1 小時</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🍻 Yatai no Tamachan</h4>
-                        <p class="text-sm text-stone-600 mt-1">體驗福岡獨特的屋台（路邊攤）夜生活與經典小吃。</p>
+                        <p class="text-sm text-stone-600 mt-1">體驗福岡獨特博多屋台（路邊攤）熱鬧夜生活與小吃。</p>
                     </div>
 
                     <div class="relative">
@@ -436,28 +483,28 @@
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">10:00 <span class="text-xs text-stone-400 font-normal">｜ 停留 1 小時</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🍞 Full full</h4>
-                        <p class="text-sm text-stone-600 mt-1">享用超人氣麵包店現烤烘焙美味。</p>
+                        <p class="text-sm text-stone-600 mt-1">享用超人氣麵包店招牌明太子法國麵包與現烤烘焙。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">11:12 <span class="text-xs text-stone-400 font-normal">｜ 停留 1.5 小時</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🍱 Ganso Hakata Mentaiju Nishinakasu</h4>
-                        <p class="text-sm text-stone-600 mt-1">拜訪博多明太子飯元祖名店，品嚐香濃醬汁與極致口感。</p>
+                        <p class="text-sm text-stone-600 mt-1">拜訪博多明太子飯元祖名店（元祖博多めんたい重），品嚐香濃秘製醬汁與昆布包明太子。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">13:04 <span class="text-xs text-stone-400 font-normal">｜ 停留 1 小時</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">👕 WORKMAN Plus</h4>
-                        <p class="text-sm text-stone-600 mt-1">採購高 CP 值戶外機能服飾。</p>
+                        <p class="text-sm text-stone-600 mt-1">採購高 CP 值日本超夯戶外機能服飾。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">17:40 <span class="text-xs text-stone-400 font-normal">｜ 停留 2 小時</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🥩 Nikuichi (Yakuin Store)</h4>
-                        <p class="text-sm text-stone-600 mt-1">人氣燒肉肉市（藥院店），享用炭火極品和牛燒肉大餐。</p>
+                        <p class="text-sm text-stone-600 mt-1">人氣燒肉肉市（藥院店），享用高品質炭火黑毛和牛燒肉盛宴。</p>
                     </div>
 
                     <div class="relative">
@@ -473,7 +520,7 @@
             <div id="day-content-4" class="tab-content hidden space-y-6">
                 <div class="border-b border-stone-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <h3 class="text-2xl font-bold text-gray-900 flex items-center">
-                        <span class="text-brand-600 mr-3">DAY 4</span> 奔向黑川溫泉鄉之夜
+                        <span class="text-brand-600 mr-3">DAY 4</span> 奔向黑川溫泉秘境之夜
                     </h3>
                     <span class="text-sm font-medium bg-stone-100 text-stone-600 px-3 py-1 rounded-full w-max">📅 2026/10/05 (一)</span>
                 </div>
@@ -483,28 +530,28 @@
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">08:00</div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🏨 Amistad Hotel Fukuoka</h4>
-                        <p class="text-sm text-stone-600 mt-1">辦理退房，準備前往九州秘境溫泉。</p>
+                        <p class="text-sm text-stone-600 mt-1">辦理退房，攜帶行李前往博多巴士總站。</p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></span>
+                        <div class="text-sm text-amber-700 font-bold">13:03 <span class="text-xs text-stone-400 font-normal">｜ 九州産交バス ５１２０６ 便 (預約制)</span></div>
+                        <h4 class="text-base font-bold text-gray-900 mt-1">🚌 博多巴士總站發車</h4>
+                        <p class="text-sm text-stone-600 mt-1">搭乘高速巴士前往黑川溫泉，車程約 3 小時（請提前於 12:45 前抵達月台候車）。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
-                        <div class="text-sm text-brand-600 font-bold">09:13 <span class="text-xs text-stone-400 font-normal">｜ 車程約 3 小時 50 分鐘</span></div>
-                        <h4 class="text-base font-bold text-gray-900 mt-1">🚌 博多巴士總站</h4>
-                        <p class="text-sm text-stone-600 mt-1">搭乘高速巴士直達黑川溫泉鄉。</p>
-                    </div>
-
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
-                        <div class="text-sm text-brand-600 font-bold">16:03 <span class="text-xs text-stone-400 font-normal">｜ 停留 1 小時</span></div>
-                        <h4 class="text-base font-bold text-gray-900 mt-1">♨️ 黑川溫泉巴士站</h4>
-                        <p class="text-sm text-stone-600 mt-1">抵達群山環繞的深山溫泉小鎮，漫步感受傳統氣息。</p>
+                        <div class="text-sm text-brand-600 font-bold">16:03 <span class="text-xs text-stone-400 font-normal">｜ 停留約 1 小時</span></div>
+                        <h4 class="text-base font-bold text-gray-900 mt-1">♨️ 抵達黑川溫泉巴士站</h4>
+                        <p class="text-sm text-stone-600 mt-1">抵達群山環繞的深山溫泉小鎮，感受涼爽濃郁的古樸日式溫泉鄉氣息。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">17:08</div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🌾 Yamashinobu (山忍溫泉旅館)</h4>
-                        <p class="text-sm text-stone-600 mt-1">入住日式典雅溫泉旅館，享用名物會席晚宴與優質秘湯。</p>
+                        <p class="text-sm text-stone-600 mt-1">入住極具私密與禪意的溫泉旅館，享用名物會席料理晚餐與療癒秘湯。</p>
                     </div>
                 </div>
             </div>
@@ -527,31 +574,31 @@
                     </div>
 
                     <div class="relative">
-                        <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
-                        <div class="text-sm text-brand-600 font-bold">10:38 <span class="text-xs text-stone-400 font-normal">｜ 停留 22 分鐘</span></div>
-                        <h4 class="text-base font-bold text-gray-900 mt-1">🚌 黑川溫泉巴士站</h4>
-                        <p class="text-sm text-stone-600 mt-1">準備搭乘高速巴士重返福岡市區。</p>
+                        <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></span>
+                        <div class="text-sm text-amber-700 font-bold">11:00 <span class="text-xs text-stone-400 font-normal">｜ 九州産交バス ５１２０３ 便 (預約制)</span></div>
+                        <h4 class="text-base font-bold text-gray-900 mt-1">🚌 黑川溫泉巴士站發車</h4>
+                        <p class="text-sm text-stone-600 mt-1">搭乘高速巴士重返福岡博多市區。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">14:10 <span class="text-xs text-stone-400 font-normal">｜ 停留 30 分鐘</span></div>
-                        <h4 class="text-base font-bold text-gray-900 mt-1">🚌 博多巴士總站</h4>
-                        <p class="text-sm text-stone-600 mt-1">順利抵達博多市中心。</p>
+                        <h4 class="text-base font-bold text-gray-900 mt-1">🚌 抵達博多巴士總站</h4>
+                        <p class="text-sm text-stone-600 mt-1">順利返抵博多車站市中心。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">14:45 <span class="text-xs text-stone-400 font-normal">｜ 停留 30 分鐘</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🏨 東洋飯店 (Toyo Hotel)</h4>
-                        <p class="text-sm text-stone-600 mt-1">入住放行李，方便明日快速前往機場。</p>
+                        <p class="text-sm text-stone-600 mt-1">辦理入住寄放行李，鄰近博多站方便明日極速前往機場。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
-                        <div class="text-sm text-brand-600 font-bold">15:29 <span class="text-xs text-stone-400 font-normal">｜ 停留 1 小時</span></div>
-                        <h4 class="text-base font-bold text-gray-900 mt-1">🛍️ 博多運河城</h4>
-                        <p class="text-sm text-stone-600 mt-1">前往大型複合式商場，採購伴手禮並欣賞水舞秀。</p>
+                        <div class="text-sm text-brand-600 font-bold">15:29 <span class="text-xs text-stone-400 font-normal">｜ 停留 2 小時</span></div>
+                        <h4 class="text-base font-bold text-gray-900 mt-1">🛍️ 博多運河城 (Canal City Hakata)</h4>
+                        <p class="text-sm text-stone-600 mt-1">前往大型複合式購物商場，最後採購伴手禮並觀賞經典音樂水舞秀。</p>
                     </div>
                 </div>
             </div>
@@ -567,17 +614,17 @@
                 
                 <div class="relative border-l-2 border-brand-200 ml-4 pl-6 space-y-8">
                     <div class="relative">
-                        <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
-                        <div class="text-sm text-brand-600 font-bold">08:00</div>
-                        <h4 class="text-base font-bold text-gray-900 mt-1">🏨 東洋飯店 (Toyo Hotel)</h4>
-                        <p class="text-sm text-stone-600 mt-1">辦理退房，輕鬆前往福岡機場。</p>
+                        <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow"></span>
+                        <div class="text-sm text-amber-700 font-bold">08:00 <span class="text-xs text-stone-400 font-normal">｜ 建議準時出發</span></div>
+                        <h4 class="text-base font-bold text-gray-900 mt-1">🏨 東洋飯店 (Toyo Hotel) 退房</h4>
+                        <p class="text-sm text-stone-600 mt-1">辦理退房，搭乘地鐵/計程車前往福岡國際機場（因離境安檢排隊極長，務必提早預留時間）。</p>
                     </div>
 
                     <div class="relative">
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">08:55 <span class="text-xs text-stone-400 font-normal">｜ 停留 2 小時</span></div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">✈️ 福岡國際機場 (FUK)</h4>
-                        <p class="text-sm text-stone-600 mt-1">辦理登機與託運，在免稅店進行最後掃貨補貨。</p>
+                        <p class="text-sm text-stone-600 mt-1">辦理報到手續與託運，並在免稅店進行最後補貨。</p>
                     </div>
 
                     <div class="relative">
@@ -591,7 +638,7 @@
                         <span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white shadow"></span>
                         <div class="text-sm text-brand-600 font-bold">12:25</div>
                         <h4 class="text-base font-bold text-gray-900 mt-1">🛬 桃園國際機場 (TPE)</h4>
-                        <p class="text-sm text-stone-600 mt-1">平安抵達台灣，結束極致療癒的福岡秋日溫泉之旅。</p>
+                        <p class="text-sm text-stone-600 mt-1">平安抵達台灣第一航廈，結束極致療癒且收穫滿滿的福岡秋日之旅。</p>
                     </div>
                 </div>
             </div>
@@ -629,7 +676,7 @@
                     <span class="text-xs font-bold text-red-600 bg-red-50 px-2.5 py-1 rounded-md">D4 秘境溫泉</span>
                     <h3 class="text-xl font-bold text-gray-900 mt-2 mb-2">Yamashinobu (山忍)</h3>
                     <p class="text-sm text-stone-600 leading-relaxed">
-                        位於黑川溫泉秘境，隱私度極高，擁有優質療癒泉質與日式精緻款待，帶來放鬆身心的極致體驗。
+                        位於黑川溫泉秘境，隱私度極高，擁有優質療癒泉質與日式精緻會席料理，帶來放鬆身心的極致體驗。
                     </p>
                 </div>
 
@@ -641,7 +688,7 @@
                     <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">D5 機場便利</span>
                     <h3 class="text-xl font-bold text-gray-900 mt-2 mb-2">東洋飯店 (Toyo Hotel)</h3>
                     <p class="text-sm text-stone-600 leading-relaxed">
-                        鄰近博多車站，回程前一晚入住的最佳便利首選，讓隔天搭乘早班機前往機場更加輕鬆無憂。
+                        緊鄰博多車站，回程前一晚入住的最佳便利首選，讓隔天搭乘早班機前往機場更加輕鬆無憂。
                     </p>
                 </div>
             </div>
